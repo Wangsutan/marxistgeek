@@ -32,9 +32,20 @@
 采用 **Pages「从分支部署」**：直接发布 `main` 分支根目录，无需构建步骤。
 推送到 `main` 即自动更新线上站点。
 
-## DNS 配置（阿里云域名控制台）
+## DNS 配置（GoDaddy）
 
-把 `marxistgeek.org` 的解析从 ECS 改到 GitHub Pages：
+域名的注册商与 DNS 托管**都是 GoDaddy**（权威 NS 为 `ns31.domaincontrol.com` /
+`ns32.domaincontrol.com`），与阿里云无关——阿里云只是原先托管 ECS 的那一方。
+因此解析要在 GoDaddy 的 DNS 管理页修改，不是阿里云域名控制台。
+
+改前的记录只有两条，且没有 MX / TXT 需要保留：
+
+```
+@     A   47.112.146.115   TTL 600
+www   A   47.112.146.115   TTL 3600   ← 是 A 记录，不是 CNAME
+```
+
+改成指向 GitHub Pages：
 
 ```
 类型   主机记录   记录值
@@ -42,7 +53,7 @@ A      @          185.199.108.153
 A      @          185.199.109.153
 A      @          185.199.110.153
 A      @          185.199.111.153
-CNAME  www        wangsutan.github.io
+CNAME  www        wangsutan.github.io   ← 删除原有的 www A 记录后新建
 ```
 
 配置完成后在仓库 **Settings → Pages** 里勾选 **Enforce HTTPS**。
