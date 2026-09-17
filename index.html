@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>marxistgeek.org</title>
+<meta name="description" content="marxistgeek.org">
+<meta name="theme-color" content="#0f1115">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+<style>
+  :root{
+    --bg:#f6f7f9; --fg:#1b1f24; --muted:#5c6672; --card:#ffffff;
+    --line:#e3e6ea; --accent:#2f6feb;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0f1115; --fg:#e8eaed; --muted:#9aa4b2; --card:#161a20;
+      --line:#242a33; --accent:#6aa1ff;
+    }
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",
+                "PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+    display:flex; align-items:center; justify-content:center;
+    padding:24px; line-height:1.65; -webkit-font-smoothing:antialiased;
+  }
+  main{
+    width:100%; max-width:560px; background:var(--card);
+    border:1px solid var(--line); border-radius:16px;
+    padding:40px 36px; box-shadow:0 8px 30px rgba(0,0,0,.06);
+    text-align:center;
+  }
+  .mark{font-size:40px; line-height:1}
+  h1{
+    font-size:24px; margin:18px 0 6px; letter-spacing:.2px;
+    font-weight:650; word-break:break-all;
+  }
+  .badge{
+    display:inline-block; margin:10px 0 0; padding:4px 12px;
+    font-size:12.5px; color:var(--accent); border-radius:999px;
+    border:1px solid var(--line); background:transparent;
+  }
+  p{color:var(--muted); font-size:14.5px; margin:16px 0 0}
+  hr{border:0; border-top:1px solid var(--line); margin:26px 0 18px}
+  footer{color:var(--muted); font-size:12.5px}
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:12.5px; background:var(--bg); border:1px solid var(--line);
+    border-radius:6px; padding:1px 6px;
+  }
+</style>
+</head>
+<body>
+  <main>
+    <div class="mark">🧭</div>
+    <h1>marxistgeek.org</h1>
+    <div class="badge">网站建设中</div>
+    <p>静态骨架已就位，页面内容稍后填充。</p>
+    <hr>
+    <footer>
+      由 GitHub Pages 托管 · <span id="y">2026</span>
+    </footer>
+  </main>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
