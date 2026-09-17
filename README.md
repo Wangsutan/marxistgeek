@@ -70,7 +70,20 @@ A      @          185.199.111.153
 CNAME  www        wangsutan.github.io   ← 删除原有的 www A 记录后新建
 ```
 
-配置完成后在仓库 **Settings → Pages** 里勾选 **Enforce HTTPS**。
+**Enforce HTTPS 已在 Settings → Pages 开启。**
+
+## 当前状态（已验证）
+
+| 入口 | 结果 |
+|---|---|
+| `https://marxistgeek.org/` | 200，HTTP/2，证书有效 |
+| `http://marxistgeek.org/` | 301 → https（各边缘节点灰度下发中） |
+| `https://www.marxistgeek.org/` | 301 → `https://marxistgeek.org/`（证书 SAN 含 www） |
+| 自定义 404 | 生效 |
+| 阿里云 ECS `47.112.146.115:80` | 已关闭（nginx 已 stop + disable） |
+
+证书由 Let's Encrypt 自动签发并续期，SAN 覆盖 apex 与 `www` 两个域名。
+`www` 在 GoDaddy 侧是 CNAME 指向 `wangsutan.github.io`。
 
 ## 后续
 
